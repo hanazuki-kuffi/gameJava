@@ -15,12 +15,13 @@ public class App {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setVisible(true);
+
+
+        PacMan pacmanGame = new PacMan(); //создаёт объект игровой панели, которую ты настроила в классе PacMan.
+        frame.add(pacmanGame); //омещает (вкладывает) созданную панель с игрой внутрь главного окна frame.
+        frame.pack(); //чтобы всё поместилось идеальное пиксель в пиксель
         frame.setVisible(true);
-
-
-        PacMan pacmanGame = new PacMan();
-        frame.add(pacmanGame);
-        frame.pack();
 
     }
 }
