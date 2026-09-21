@@ -46,9 +46,34 @@ public class PacMan extends JPanel{
     private Image pacmanRightImage;
     private Image pacmanLeftImage;
 
+    private String[] tilemap = {
+        "XXXXXXXXXXXXXXXXXXX",
+        "X        X        X",
+        "X XX XXX X XXX XX X",
+        "X                 X",
+        "X XX X XXXXX X XX X",
+        "X    X       X    X",
+        "XXXX XXXX XXXX XXXX",
+        "OOOX X       X XOOO",
+        "XXXX X XXrXX X XXXX",
+        "O       bpo       O",
+        "XXXX X XXXXX X XXXX",
+        "OOOX X       X XOOO",
+        "XXXX X XXXXX X XXXX",
+        "X        X        X",
+        "X XX XXX X XXX XX X",
+        "X  X     P     X  X",
+        "XX X X XXXXX X X XX",
+        "X    X   X   X    X",
+        "X XXXXXX X XXXXXX X",
+        "X                 X",
+
+    }
+
     HashSet <Block> walls;
     HashSet <Block> foods;
-    Has
+    HashSet<Block> ghosts;
+    Block pacman;
 
 
     PacMan() {
@@ -67,6 +92,20 @@ public class PacMan extends JPanel{
         pacmanDownImage = new ImageIcon(getClass().getResource("./pacmanDown.png")).getImage();
         pacmanRightImage = new ImageIcon(getClass().getResource("./pacmanRight.png")).getImage();
         pacmanLeftImage = new ImageIcon(getClass().getResource("./pacmanLeft.png")).getImage();
+
+    }
+    public  void loadMap() { // почему при написаний статика у меня эти хашсеты ошибка выдает? (walls,foods,ghosts)
+        walls = new HashSet<Block>();
+        foods = new HashSet<Block>();
+        ghosts = new HashSet<Block>();
+
+        for (int r = 0; r < rowCount; r++) {
+            for (int c = 0; c < columnCount; c++) {
+                String row = tilemap[r];
+                row tileMapChar = row.charAt(c);
+//                String column = tilemap[c];
+            }
+        }
 
     }
 
