@@ -102,11 +102,14 @@ public class PacMan extends JPanel{
         for (int r = 0; r < rowCount; r++) {
             for (int c = 0; c < columnCount; c++) {
                 String row = tilemap[r];
-                row tileMapChar = row.charAt(c);
-//                String column = tilemap[c];
+                char tileMapChar = row.charAt(c);
+
+                int x = c * tileSize;
+                int y = c * tileSize;
+
+                if (tileMapChar == "x")
+//
             }
         }
-
     }
-
 }
