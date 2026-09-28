@@ -6,6 +6,7 @@ import javax.swing.*;
 
 public class PacMan extends JPanel {
     class Block {
+
         int x;
         int y;
         int width;
@@ -94,6 +95,13 @@ public class PacMan extends JPanel {
         pacmanRightImage = new ImageIcon(getClass().getResource("./pacmanRight.png")).getImage();
         pacmanLeftImage = new ImageIcon(getClass().getResource("./pacmanLeft.png")).getImage();
 
+
+        loadMap();
+        System.out.println(walls.size());
+        System.out.println(foods.size());
+        System.out.println(ghosts.size());
+
+
     }
     public  void loadMap() { // почему при написаний статика у меня эти хашсеты ошибка выдает? (walls,foods,ghosts)
         walls = new HashSet<Block>();
@@ -108,17 +116,34 @@ public class PacMan extends JPanel {
                 int x = c * tileSize;
                 int y = c * tileSize;
 
-                if (tileMapChar == "X") {
+                if (tileMapChar == 'X') {
                     Block wall = new Block(wallImage, x, y, tileSize, tileSize);
                     walls.add(wall);
-                } else if (tileMapChar == "b") {
+                }
+                else if (tileMapChar == 'b') {
                     Block ghost = new Block(blueGhostImage, x, y, tileSize, tileSize);
                     ghosts.add(ghost);
-                } else if (tileMapChar == "o") {
-                    Block ghost = new Block(orangeGhostImage, x, y, tileSize, tileSize);
-
                 }
-//
+                else if (tileMapChar == 'b') {
+                    Block ghost = new Block(orangeGhostImage, x, y, tileSize, tileSize);
+                    ghosts.add(ghost);
+                }
+                else if (tileMapChar == 'p') {
+                    Block ghost = new Block(pinkGhostImage, x, y, tileSize, tileSize);
+                    ghosts.add(ghost);
+                }
+                else if (tileMapChar == 'r') {
+                    Block ghost = new Block(redGhostImage, x, y, tileSize, tileSize);
+                    ghosts.add(ghost);
+                }
+                else if (tileMapChar == 'P') {
+                    Block ghost = new Block(pacmanRightImage, x, y, tileSize, tileSize);
+                    ghosts.add(ghost);
+                }
+                else if (tileMapChar == ' ') {
+                    Block food = new Block(null, x + 14, y + 14, 4, 4);
+                    foods.add(food);
+                }
             }
         }
     }
