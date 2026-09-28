@@ -4,7 +4,7 @@ import java.util.HashSet;
 import java.util.Random;
 import javax.swing.*;
 
-public class PacMan extends JPanel{
+public class PacMan extends JPanel {
     class Block {
         int x;
         int y;
@@ -27,6 +27,7 @@ public class PacMan extends JPanel{
         }
 
     }
+
     private int rowCount = 21;
     private int columnCount = 19;
     private int tileSize = 32;
@@ -47,28 +48,28 @@ public class PacMan extends JPanel{
     private Image pacmanLeftImage;
 
     private String[] tilemap = {
-        "XXXXXXXXXXXXXXXXXXX",
-        "X        X        X",
-        "X XX XXX X XXX XX X",
-        "X                 X",
-        "X XX X XXXXX X XX X",
-        "X    X       X    X",
-        "XXXX XXXX XXXX XXXX",
-        "OOOX X       X XOOO",
-        "XXXX X XXrXX X XXXX",
-        "O       bpo       O",
-        "XXXX X XXXXX X XXXX",
-        "OOOX X       X XOOO",
-        "XXXX X XXXXX X XXXX",
-        "X        X        X",
-        "X XX XXX X XXX XX X",
-        "X  X     P     X  X",
-        "XX X X XXXXX X X XX",
-        "X    X   X   X    X",
-        "X XXXXXX X XXXXXX X",
-        "X                 X",
+            "XXXXXXXXXXXXXXXXXXX",
+            "X        X        X",
+            "X XX XXX X XXX XX X",
+            "X                 X",
+            "X XX X XXXXX X XX X",
+            "X    X       X    X",
+            "XXXX XXXX XXXX XXXX",
+            "OOOX X       X XOOO",
+            "XXXX X XXrXX X XXXX",
+            "O       bpo       O",
+            "XXXX X XXXXX X XXXX",
+            "OOOX X       X XOOO",
+            "XXXX X XXXXX X XXXX",
+            "X        X        X",
+            "X XX XXX X XXX XX X",
+            "X  X     P     X  X",
+            "XX X X XXXXX X X XX",
+            "X    X   X   X    X",
+            "X XXXXXX X XXXXXX X",
+            "X                 X",
 
-    }
+    };
 
     HashSet <Block> walls;
     HashSet <Block> foods;
@@ -107,7 +108,16 @@ public class PacMan extends JPanel{
                 int x = c * tileSize;
                 int y = c * tileSize;
 
-                if (tileMapChar == "x")
+                if (tileMapChar == "X") {
+                    Block wall = new Block(wallImage, x, y, tileSize, tileSize);
+                    walls.add(wall);
+                } else if (tileMapChar == "b") {
+                    Block ghost = new Block(blueGhostImage, x, y, tileSize, tileSize);
+                    ghosts.add(ghost);
+                } else if (tileMapChar == "o") {
+                    Block ghost = new Block(orangeGhostImage, x, y, tileSize, tileSize);
+
+                }
 //
             }
         }
