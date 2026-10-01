@@ -100,13 +100,12 @@ public class PacMan extends JPanel {
         System.out.println(walls.size());
         System.out.println(foods.size());
         System.out.println(ghosts.size());
-
-
     }
     public  void loadMap() { // почему при написаний статика у меня эти хашсеты ошибка выдает? (walls,foods,ghosts)
         walls = new HashSet<Block>();
         foods = new HashSet<Block>();
         ghosts = new HashSet<Block>();
+
 
         for (int r = 0; r < rowCount; r++) {
             for (int c = 0; c < columnCount; c++) {
@@ -124,7 +123,7 @@ public class PacMan extends JPanel {
                     Block ghost = new Block(blueGhostImage, x, y, tileSize, tileSize);
                     ghosts.add(ghost);
                 }
-                else if (tileMapChar == 'b') {
+                else if (tileMapChar == 'o') {
                     Block ghost = new Block(orangeGhostImage, x, y, tileSize, tileSize);
                     ghosts.add(ghost);
                 }
@@ -137,8 +136,8 @@ public class PacMan extends JPanel {
                     ghosts.add(ghost);
                 }
                 else if (tileMapChar == 'P') {
-                    Block ghost = new Block(pacmanRightImage, x, y, tileSize, tileSize);
-                    ghosts.add(ghost);
+                    pacman = new Block(pacmanRightImage, x, y, tileSize, tileSize);
+                    ghosts.add(pacman);
                 }
                 else if (tileMapChar == ' ') {
                     Block food = new Block(null, x + 14, y + 14, 4, 4);
